@@ -7,7 +7,7 @@
         $requete = "SELECT * FROM $type WHERE nom='$nom' AND mdp='$mdp'";
         $traitement = mysqli_query(connexion(), $requete);
         if(mysqli_num_rows($traitement) > 0) {return true;} 
-        else {return false;}
+        else { return false;}
     }
 //Pour lister une table 
     function getAll($table)
@@ -21,17 +21,31 @@
         }
         return $retour;
     }
-//Pour supprimer une ligne d'une table avec conditionnement
+//Pour supprimer une ligne d'une table avec conditionnementb(string)
     function delete($table, $condition, $valeur)
     {
-        $requete="delete ".$table." where ".$condition."=".$valeur;
+        $requete="delete from ".$table." where ".$condition."='".$valeur."'";
+        echo($requete);
 		$traitement=mysqli_query(connexion(), $requete);	
     }
-//Pour modifier un champs dans une table
+//Pour supprimer une ligne d'une table avec conditionnementb(nombre)
+    function deleteNumber($table, $condition, $valeur)
+    {
+        $requete="delete from ".$table." where ".$condition."=".$valeur;
+        echo($requete);
+        $traitement=mysqli_query(connexion(), $requete);	
+    }
+//Pour modifier un champs dans une table (string)
+    function updateNumber($table, $setChamp, $setValeur, $champ, $condition)
+    {
+        $requete="update ".$table." set".$setChamp."='".$setValeur."' where ".$champ."='".$condition."'";
+		$traitement=mysqli_query(connexion(), $requete);  
+    }
+//Pour modifier un champs dans une table (nombre)
     function update($table, $setChamp, $setValeur, $champ, $condition)
     {
         $requete="update ".$table." set".$setChamp."=".$setValeur." where ".$champ."=".$condition;
-		$traitement=mysqli_query(connexion(), $requete);  
+        $traitement=mysqli_query(connexion(), $requete);  
     }
 //Pour faire une insertion dans une table
     function insertion($table, $colonnes, $valeurs) //ou $colonnes de types string de la forme ex:"id, nom" de meme pour $valeurs
