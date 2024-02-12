@@ -1,38 +1,62 @@
-body {
-    background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../assets/img/tea.jpg");
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-  }
-  .login-container {
-    max-width: 400px;
-    margin: auto;
-    margin-top: 100px;
-    background-color: #ffffffad;
-    border-radius: 8px;
-    padding: 40px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  }
-  .login-heading {
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  .form-control {
-    border-radius: 50px;
-    margin-bottom: 20px;
-  }
-  .btn-login {
-    max-width: 50%;
-    border-radius: 20px;
-    background-color: #09b9e562;
-    border: none;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-  }
-  
-  .btn-login:hover {
-    background-color: #cc0810;
-  }
+/* Custom CSS for Admin Login Page */
 
- 
+body {
+  font-family: Arial, sans-serif; /* Change font family for better readability */
+  background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../assets/img/tea.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.login-container {
+  max-width: 400px;
+  background-color: rgba(255, 255, 255, 0.8); /* Light background color with translucency */
+  border-radius: 8px;
+  padding: 40px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-heading {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.form-control {
+  border-radius: 25px; /* Reduce border radius for smoother appearance */
+  margin-bottom: 20px;
+}
+
+.btn-login {
+  border-radius: 20px;
+  background-color: #09b9e562;
+  border: none;
+  display: block;
+  width: 100%; /* Make button full width */
+  padding: 10px; /* Add padding */
+  transition: background-color 0.3s; /* Add transition for smooth hover effect */
+}
+
+.btn-login:hover {
+  background-color: #cc0810;
+}
+
+footer {
+  background-color: #f8f9fa00; /* Background color */
+  padding: 20px 0; /* Add padding to top and bottom */
+  color: #6c757d; /* Text color */
+  text-align: center; /* Center align the text */
+  font-size: 18px; /* Increase font size */
+}
+
+.footer-text {
+  color: #000000; /* Brighten the text color */
+}
