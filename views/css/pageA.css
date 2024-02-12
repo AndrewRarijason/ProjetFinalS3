@@ -1,0 +1,25 @@
+/* Additional custom styles */
+body {
+    background-color: aliceblue;
+      }
+      
+      .container {
+        max-width: 600px;
+        margin: 100px auto;
+        padding: 20px;
+        background-color: #ffffff71;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      }
+      
+      .form-group {
+        margin-bottom: 20px;
+      }
+      
+      .btn-primary {
+        width: 50%;
+        margin: 0 auto;
+        display: block;
+      }
+      
+    
