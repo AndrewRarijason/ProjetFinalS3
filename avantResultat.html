@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page de résultat</title>
+    <!-- Bootstrap CSS -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/depense.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="my-4">Page de résultat</h2>
+        <form action="resultat.php" method="GET">
+            <div class="form-group">
+                <label for="dateDebut">Date de début</label>
+                <input type="date" class="form-control" id="dateDebut" required  name="debut">
+            </div>
+            <div class="form-group">
+                <label for="dateFin">Date de fin</label>
+                <input type="date" class="form-control" id="dateFin" required name="fin">
+            </div>
+            <button type="submit" class="btn btn-primary">Valider</button>
+        </form>
+    </div>
+    <footer class="footer-box">
+        <div class="container px-4 px-lg-5">
+          <div class="small text-center text-muted">ETU002515 ETU002742 ETU001647</div>
+        </div>
+      </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
