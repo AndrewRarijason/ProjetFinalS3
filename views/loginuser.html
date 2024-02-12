@@ -23,12 +23,12 @@
   <div class="container">
     <div class="login-container">
       <h2 class="login-heading">Login</h2>
-      <form id="loginForm">
+      <form id="loginForm" action="../controller/traitementUser.php" method="post">
         <div class="form-group">
-          <input type="email" class="form-control" id="email" placeholder="Email" required>
+          <input type="text" class="form-control" id="username" name="username" placeholder="Email" required>
         </div>
         <div class="form-group">
-          <input type="password" class="form-control" id="password" placeholder="Password" required>
+          <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
         </div>
         <button type="submit" class="btn btn-lg btn-block btn-login">Sign In</button>
       </form>
@@ -36,25 +36,6 @@
   </div>
 
   <!-- Add script for redirection -->
-  <script>
-    document.getElementById("loginForm").addEventListener("submit", function(event) {
-      event.preventDefault(); // Prevent default form submission
-      var email = document.getElementById("email").value;
-      var password = document.getElementById("password").value;
-
-      // Hardcoded username and password
-      var validUsername = "user@gmail.com";
-      var validPassword = "user";
-
-      // Check if email and password match
-      if (email === validUsername && password === validPassword) {
-        // Redirect to admin.html
-        window.location.href = "user.html";
-      } else {
-        alert("Invalid email or password. Please try again.");
-      }
-    });
-  </script>
 </body>
 <footer class="bg-light py-5">
     <div class="container px-4 px-lg-5"><div class="small text-center text-muted">ETU002515 ETU002742 ETU001647</div></div>
