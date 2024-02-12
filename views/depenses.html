@@ -12,26 +12,20 @@
 <body>
     <div class="container mt-5">
         <h2 class="my-4">Saisie des dépenses</h2>
-        <form>
+        <form action="../controller/saisieDepenseUser.php">
             <div class="form-group">
-                <label for="date">Date</label>
-                <input type="date" class="form-control" id="date" required>
-            </div>
-            <div class="form-group">
-                <label for="categorie">Choix catégorie dépense</label>
-                <select class="form-control" id="categorie" required>
-                    <option value="">Sélectionner une catégorie</option>
-                    <option value="nourriture">Nourriture</option>
-                    <option value="transport">Transport</option>
-                    <option value="logement">Logement</option>
-                    <option value="autre">Autre</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="montant">Montant</label>
-                <input type="number" class="form-control" id="montant" min="0" step="0.01" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Valider</button>
+                <label for="varietyName">Nom</label>
+                <input type="text" class="form-control" id="type" name="type" placeholder="Nom/type de dépense " required>
+              </div>
+              <div class="form-group">
+                <label for="occupation">Montant</label>
+                <input type="text" class="form-control" id="Montant" name="Montant" placeholder="Montanr du dépense" required>
+              </div>
+              <div class="form-group">
+                <label for="rendement">Date</label>
+                <input type="date" class="form-control" id="date" name="date" placeholder="Date du dépense" required>
+              </div>
+              <button type="submit" class="btn btn-primary">Insérer</button>
         </form>
     </div>
 
