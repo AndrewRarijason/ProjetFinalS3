@@ -31,4 +31,4 @@ INSERT INTO poids (id_parcelle, poids) VALUES
 (1, 15);
 
 INSERT INTO plantation (id_parcelle, id_the, date_plantation) VALUES
-(1, 1, 1, '2024/01/13');
+(1, 1,'2024/01/13');
