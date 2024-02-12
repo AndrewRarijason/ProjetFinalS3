@@ -42,7 +42,7 @@ CREATE TABLE admin(
  CREATE TABLE salaire (
     id_salaire INT AUTO_INCREMENT PRIMARY KEY,
     id_cueilleur INT,
-    montant FLOAT,
+    montant FLOAT, --salaire /cueillette/cueilleur
     FOREIGN KEY (id_cueilleur) REFERENCES cueilleur (id_cueilleur)
  );
 
@@ -55,12 +55,6 @@ CREATE TABLE cueillette (
     FOREIGN KEY (id_parcelle) REFERENCES parcelle (id_parcelle)
 );
 
-CREATE TABLE poids (
-    id_poids INT AUTO_INCREMENT PRIMARY KEY,
-    id_parcelle INT,
-    poids FLOAT,
-    FOREIGN KEY (id_parcelle) REFERENCES parcelle (id_parcelle)
-);
 
 CREATE TABLE plantation (
    id_plantation INT AUTO_INCREMENT PRIMARY KEY,
