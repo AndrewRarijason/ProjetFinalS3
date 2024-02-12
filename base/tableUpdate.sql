@@ -64,3 +64,7 @@ CREATE TABLE Cueillettes (
     FOREIGN KEY (id_parcelle) REFERENCES Parcelles(id)
 );
 
+CREATE VIEW affichage AS
+SELECT Varietes_The.id AS id_variete, Parcelles.id AS id_parcelle, Parcelles.surface
+FROM Varietes_The
+JOIN Parcelles ON Parcelles.id_the = Varietes_The.id;
