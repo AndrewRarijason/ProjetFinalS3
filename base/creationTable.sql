@@ -16,7 +16,6 @@ CREATE TABLE admin(
 
  CREATE TABLE parcelle (
     id_parcelle INT AUTO_INCREMENT PRIMARY KEY,
-    id_the INT,
     surface FLOAT,   
     FOREIGN KEY (id_the) REFERENCES the(id_the)
  );
@@ -61,4 +60,13 @@ CREATE TABLE poids (
     id_parcelle INT,
     poids FLOAT,
     FOREIGN KEY (id_parcelle) REFERENCES parcelle (id_parcelle)
+);
+
+CREATE TABLE plantation (
+   id_plantation INT AUTO_INCREMENT PRIMARY KEY,
+   id_parcelle INT,
+   id_the INT,
+   date_plantation DATE,
+   FOREIGN KEY (id_parcelle) REFERENCES parcelle (id_parcelle),
+   FOREIGN KEY (id_the) REFERENCES the (id_the)
 );
