@@ -48,9 +48,10 @@ body {
 
 /* Custom CSS for Page de résultat */
 
-.footer-box {
-    background-color: #f8f9fa00; /* Light background color */
-    padding: 10px 0; /* Add padding to top and bottom */
+footer {
+    background-color: #f8f9fa00; /* Background color */
+    padding: 20px 0; /* Add padding to top and bottom */
     color: #6c757d; /* Text color */
     text-align: center; /* Center align the text */
 }
+
