@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Login</title>
+    <!-- Bootstrap Icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+    <!-- SimpleLightbox plugin CSS-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href="css/admin.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="container">
+    <div class="login-container">
+      <h2 class="login-heading">Login</h2>
+      <form id="loginForm">
+        <div class="form-group">
+          <input type="email" class="form-control" id="email" placeholder="Email" required>
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control" id="password" placeholder="Password" required>
+        </div>
+        <button type="submit" class="btn btn-lg btn-block btn-login">Sign In</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Add script for redirection -->
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent default form submission
+      var email = document.getElementById("email").value;
+      var password = document.getElementById("password").value;
+
+      // Hardcoded username and password
+      var validUsername = "user@gmail.com";
+      var validPassword = "user";
+
+      // Check if email and password match
+      if (email === validUsername && password === validPassword) {
+        // Redirect to admin.html
+        window.location.href = "user.html";
+      } else {
+        alert("Invalid email or password. Please try again.");
+      }
+    });
+  </script>
+</body>
+<footer class="bg-light py-5">
+    <div class="container px-4 px-lg-5"><div class="small text-center text-muted">ETU002515 ETU002742 ETU001647</div></div>
+</footer>
+</html>
