@@ -1,0 +1,56 @@
+body {
+    background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../assets/img/tea.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffffce;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    position: relative;
+    background-color: #ff3300d0; /* Change button color to blue */
+    color: #ffffffbb; /* Change button text color to white */
+    border: none; /* Remove button border */
+    display: block; /* Ensure the button takes up the full width */
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    transform: translate(-50%, -50%);
+}
+
+.form-group label {
+    font-weight: bold;
+}
+
+.form-control {
+    border-radius: 5px;
+    border: 1px solid #ced4dabd;
+}
+
+/* Custom CSS for Page de résultat */
+
+.footer-box {
+    background-color: #f8f9fa00; /* Light background color */
+    padding: 10px 0; /* Add padding to top and bottom */
+    color: #6c757d; /* Text color */
+    text-align: center; /* Center align the text */
+}
