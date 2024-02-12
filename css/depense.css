@@ -45,3 +45,12 @@ body {
     border-radius: 5px;
     border: 1px solid #ced4dabd;
 }
+
+/* Custom CSS for Page de résultat */
+
+.footer-box {
+    background-color: #f8f9fa00; /* Light background color */
+    padding: 10px 0; /* Add padding to top and bottom */
+    color: #6c757d; /* Text color */
+    text-align: center; /* Center align the text */
+}
