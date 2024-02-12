@@ -34,6 +34,7 @@ CREATE TABLE Varietes_The (
 -- Table parcelles (de thé)
 CREATE TABLE Parcelles (
     id INT AUTO_INCREMENT PRIMARY KEY,
+    nom_parcelle VARCHAR(50),
     surface FLOAT,
     id_the INT,
     FOREIGN KEY (id_the) REFERENCES Varietes_The(id)
@@ -50,7 +51,9 @@ CREATE TABLE Depenses (
 -- Table salaires des cueilleurs
 CREATE TABLE Salaires_cueilleurs (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    montant DECIMAL(8,2) NOT NULL
+    id_cueilleur INT,
+    montant DECIMAL(8,2) NOT NULL,
+    FOREIGN KEY (id_cueilleur) REFERENCES cueilleurs(id)
 );
 
 -- Table pour les cueillettes
