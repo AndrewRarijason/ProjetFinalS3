@@ -6,11 +6,8 @@
     {
         $requete = "SELECT * FROM $type WHERE nom='$nom' AND mdp='$mdp'";
         $traitement = mysqli_query(connexion(), $requete);
-        if(mysqli_num_rows($traitement) > 0) {
-            return true;
-        } else {
-            return false;
-        }
+        if(mysqli_num_rows($traitement) > 0) {return true;} 
+        else {return false;}
     }
 //Pour lister une table 
     function getAll($table)
@@ -18,7 +15,10 @@
         $requete="select*from ".$table;
 		$traitement=mysqli_query(connexion(), $requete);
         $retour=array();
-        $retour=mysqli_fetch_assoc($traitement);
+        while($d=mysqli_fetch_assoc($traitement))
+        {
+            $retour[]=$d;
+        }
         return $retour;
     }
 //Pour supprimer une ligne d'une table avec conditionnement
@@ -42,36 +42,26 @@
 //Pour recuperer le rendement total qu'on peut esperer d'une parcelle
     function getRendementTotal($idParcelle)
     {
-        $requete="select ((affichage.parcelle)*10000/the.occupation)*the.rendement as total from affichage join the on affichage.id_the=the.id where affichage.id_parcelle=".$idParcelle;      
+        $requete="select ((affichage.parcelle)*10000/Variete_the.occupation)*Variete_the.rendement as total from affichage join Variete_the on affichage.id_the=Variete_the.id where affichage.id_parcelle=".$idParcelle;      
         $traitement=mysqli_query(connexion(), $requete);
         $d = $traitement->fetch_assoc(); 
         $retour=$d['total'];
         return $retour;
     }
 //Pour valider l'insertion a l'ajax
-    function validPoids($poids, $date, $idParcelle)
-    {
-        $mois=$mois = date("n", strtotime($date));
-        $requete="select sum(poids) as total from cueillete where id_parcelle=".$idParcelle." and month(date_cueillete)=".$mois;
-        $traitement=mysqli_query(connexion(), $requete);
-        $d = $traitement->fetch_assoc(); 
-        $ret=getRendementTotal($idParcelle)-$d['total'];
-        if($poids<=$ret){return true;}
-        else{return false;}
-        return $retour;
-    }
     function validPoids($poids, $date, $idParcelle) {
         $mois = extraireMois($date);
-        $requete = "SELECT SUM(poids) AS total FROM cueillete WHERE id_parcelle=$idParcelle AND MONTH(date_cueillete)=$mois";
+        $requete = "SELECT SUM(poids) AS total FROM Cueillete WHERE id_parcelle=$idParcelle AND MONTH(date_cueillete)=$mois";
         $traitement = mysqli_query(connexion(), $requete);
         $d = $traitement->fetch_assoc(); 
         $ret = getRendementTotal($idParcelle) - $d['total'];
-        if($poids <= $ret) {return true;} else {return false;}
+        if($poids <= $ret) {return true;} 
+        else {return false;}
     }
 //Recuperer le total des cueilletes 
-    function totalCueillete()
+    function totalCueillete($dateDebut, $dateFin)
     {
-        $requete="select sum(poids) as total from cueillette";
+        $requete="select sum(poids) as total from Cueillette where date_cueillette>$dateDebut and date_cueillette<=$dateFin";
         $traitement=mysqli_query(connexion(), $requete);
         $d = $traitement->fetch_assoc(); 
         $retour=$d['total'];
@@ -80,38 +70,38 @@
 //Pour recuperer le rendement total (sans tenir en compte les parcelles)
     function getTotal()
     {
-        $requete = "SELECT ((affichage.parcelle) * 10000 / the.occupation) * the.rendement AS total FROM affichage JOIN the ON affichage.id_the=the.id";
+        $requete = "SELECT ((affichage.parcelle) * 10000 / Variete_the.occupation) * Variete_the.rendement AS total FROM affichage JOIN Variete_the ON affichage.id_the=Variete_the.id";
         $traitement = mysqli_query(connexion(), $requete);
         $d = $traitement->fetch_assoc(); 
         $retour = $d['total'];
         return $retour;
     }
 //Recuperer le poids restants sur les parcelles
-    function poidRestant() 
+    function poidRestant($dateDebut, $dateFin) 
     {
         $total = getTotal();
-        $cueillis = totalCueillete();
+        $cueillis = totalCueillete($dateDebut, $dateFin);
         $retour = $total - $cueillis;
         return $retour;
     }
 //Recuperer salaire pour toutes la cueillete
-    function getSalaireTotal()
+    function getSalaireTotal($dateDebut, $dateFin)
     {
-        $requete="select sum(salaire.montant*cueillete.poids) as total from salaire join cueillete on salaire.id_cueilleur=cueillete.id_cueilleur";
+        $requete="select sum(Salaire.montant*Cueillete.poids) as total from Salaire join Cueillete on Salaire.id_cueilleur=Cueillete.id_cueilleur where date_cueillette>$dateDebut and date_cueillette<=$dateFin";
         $traitement=mysqli_query(connexion(), $requete);
         $d = $traitement->fetch_assoc(); 
         $retour=$d['total'];
         return $retour;
     }
 //Pour recuperer le cout de revient
-    function getCoutDeRevient() 
+    function getCoutDeRevient($dateDebut, $dateFin) 
     {
-        $requete = "SELECT SUM(montant) AS total FROM depense";
+        $requete = "SELECT SUM(montant) AS total FROM Depense";
         $traitement = mysqli_query(connexion(), $requete);
         $d = $traitement->fetch_assoc(); 
         $depense = $d['total'] / getRendementTotal();
-        $salaireTotal = getSalaireTotal();
-        $totalCueillete = totalCueillete();
+        $salaireTotal = getSalaireTotal($dateDebut, $dateFin);
+        $totalCueillete = totalCueillete($dateDebut, $dateFin);
         $depenses = ($salaireTotal / $totalCueillete) + $depense;
         return $depenses;
     }
