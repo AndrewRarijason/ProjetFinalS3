@@ -4,10 +4,13 @@
 //Pour valider la connexion d'un utilisateur ou d'un administrateur
     function validLogin($nom, $mdp, $type) //types=utilisateur/admin
     {
-        $requete="select*from ".$type." where nom='".$nom."' and mdp='".$mdp."'";
-        $traitement=mysqli_query(connexion(), $requete);
-        if($traitement!=null){return true;}
-        else{return false};
+        $requete = "SELECT * FROM $type WHERE nom='$nom' AND mdp='$mdp'";
+        $traitement = mysqli_query(connexion(), $requete);
+        if(mysqli_num_rows($traitement) > 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 //Pour lister une table 
     function getAll($table)
@@ -33,8 +36,8 @@
 //Pour faire une insertion dans une table
     function insertion($table, $colonnes, $valeurs) //ou $colonnes de types string de la forme ex:"id, nom" de meme pour $valeurs
     {
-        $requete="insert into ".$table."(".$colonnes.") values (".$valeurs.")";
-        $traitement=mysqli_query(connexion(), $requete);
+        $requete = "INSERT INTO $table ($colonnes) VALUES ($valeurs)";
+        $traitement = mysqli_query(connexion(), $requete);
     }
 //Pour recuperer le rendement total qu'on peut esperer d'une parcelle
     function getRendementTotal($idParcelle)
@@ -48,7 +51,7 @@
 //Pour valider l'insertion a l'ajax
     function validPoids($poids, $date, $idParcelle)
     {
-        $mois=month($date);
+        $mois=$mois = date("n", strtotime($date));
         $requete="select sum(poids) as total from cueillete where id_parcelle=".$idParcelle." and month(date_cueillete)=".$mois;
         $traitement=mysqli_query(connexion(), $requete);
         $d = $traitement->fetch_assoc(); 
@@ -56,6 +59,14 @@
         if($poids<=$ret){return true;}
         else{return false;}
         return $retour;
+    }
+    function validPoids($poids, $date, $idParcelle) {
+        $mois = extraireMois($date);
+        $requete = "SELECT SUM(poids) AS total FROM cueillete WHERE id_parcelle=$idParcelle AND MONTH(date_cueillete)=$mois";
+        $traitement = mysqli_query(connexion(), $requete);
+        $d = $traitement->fetch_assoc(); 
+        $ret = getRendementTotal($idParcelle) - $d['total'];
+        if($poids <= $ret) {return true;} else {return false;}
     }
 //Recuperer le total des cueilletes 
     function totalCueillete()
@@ -69,19 +80,19 @@
 //Pour recuperer le rendement total (sans tenir en compte les parcelles)
     function getTotal()
     {
-        $requete="select ((affichage.parcelle)*10000/the.occupation)*the.rendement as total from affichage join the on affichage.id_the=the.id";      
-        $traitement=mysqli_query(connexion(), $requete);
+        $requete = "SELECT ((affichage.parcelle) * 10000 / the.occupation) * the.rendement AS total FROM affichage JOIN the ON affichage.id_the=the.id";
+        $traitement = mysqli_query(connexion(), $requete);
         $d = $traitement->fetch_assoc(); 
-        $retour=$d['total'];
+        $retour = $d['total'];
         return $retour;
     }
 //Recuperer le poids restants sur les parcelles
-    function poidRestant()
+    function poidRestant() 
     {
-        $total=getTotal();
-        $cueillis=totalCueillete();
-        $retour=$total-$cueillis;
-        return retour;
+        $total = getTotal();
+        $cueillis = totalCueillete();
+        $retour = $total - $cueillis;
+        return $retour;
     }
 //Recuperer salaire pour toutes la cueillete
     function getSalaireTotal()
@@ -93,13 +104,16 @@
         return $retour;
     }
 //Pour recuperer le cout de revient
-    function getCoutDeRevient()
+    function getCoutDeRevient() 
     {
-        $requete="select sum(montant) as total from depense";
-        $traitement=mysqli_query(connexion(), $requete);
+        $requete = "SELECT SUM(montant) AS total FROM depense";
+        $traitement = mysqli_query(connexion(), $requete);
         $d = $traitement->fetch_assoc(); 
-        $depense=$d['total']/getRendementTotal();
-        $retour=(getSalaireTotal()/totalCueillete())+$depenses;
+        $depense = $d['total'] / getRendementTotal();
+        $salaireTotal = getSalaireTotal();
+        $totalCueillete = totalCueillete();
+        $depenses = ($salaireTotal / $totalCueillete) + $depense;
+        return $depenses;
     }
 ?>
 
