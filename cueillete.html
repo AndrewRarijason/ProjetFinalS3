@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Thé</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap Icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+    <!-- SimpleLightbox plugin CSS-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/user.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="container">
+    <h2 class="my-4">Saisie des cueillettes</h2>
+    <form id="harvestForm">
+      <div class="form-group">
+        <label for="date">Date</label>
+        <input type="date" class="form-control" id="date" required>
+      </div>
+      <div class="form-group">
+        <label for="cueilleur">Choix cueilleur</label>
+        <select class="form-control" id="cueilleur" required>
+          <option value="">Select cueilleur</option>
+          <!-- Add options for cueilleurs dynamically using JavaScript or load from database -->
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="parcelle">Choix parcelle</label>
+        <select class="form-control" id="parcelle" required>
+          <option value="">Select parcelle</option>
+          <!-- Add options for parcelles dynamically using JavaScript or load from database -->
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="poids">Poids cueilli (kg)</label>
+        <input type="number" class="form-control" id="poids" min="0" step="0.01" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Valider</button>
+    </form>
+  </div>
+
+  <!-- JavaScript for AJAX validation will go here -->
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
