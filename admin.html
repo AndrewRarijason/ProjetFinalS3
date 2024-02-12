@@ -8,120 +8,161 @@
   <title>Admin</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
-  <link href="css/pageA.css" rel="stylesheet" />
+  <link href="css/pageAdmin.css" rel="stylesheet" />
+  <style>
+    /* Additional custom styles */
+    body {
+      background-color: aliceblue;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #ffffff71;
+      border-radius: 8px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .box {
+      padding: 20px;
+      margin-bottom: 30px;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .btn-primary {
+      width: 50%;
+      margin: 0 auto;
+      display: block;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
-    <h2 class="my-4">Insert Variété</h2>
-    <form id="teaVarietyForm">
-      <div class="form-group">
-        <label for="varietyName">Nom Variété</label>
-        <input type="text" class="form-control" id="varietyName" placeholder="Enter variety name" required>
-      </div>
-      <div class="form-group">
-        <label for="occupation">Occupation</label>
-        <input type="text" class="form-control" id="occupation" placeholder="Enter occupation" required>
-      </div>
-      <div class="form-group">
-        <label for="rendement">Rendement</label>
-        <input type="text" class="form-control" id="rendement" placeholder="Enter rendement" required>
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-  </div>
-  <div class="container">
-    <h2 class="my-4">Insert Parcelle</h2>
-    <form id="teaVarietyForm">
-      <div class="form-group">
-        <label for="varietyName">Nom Parcelle</label>
-        <input type="text" class="form-control" id="Parcelle" placeholder="Enter Parcelle" required>
-      </div>
-      <div class="form-group">
-        <label for="occupation">Surface en Hectare</label>
-        <input type="text" class="form-control" id="Surface" placeholder="Enter Surface" required>
-      </div>
-      <div class="form-group">
-        <label for="rendement">Variété de thé planté</label>
-        <input type="text" class="form-control" id="plante" placeholder="Enter Variété de thé planté" required>
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-  </div>
-  <div class="container">
-    <h2 class="my-4">Insert Cueilleurs</h2>
-    <form id="teaVarietyForm">
-      <div class="form-group">
-        <label for="varietyName">Nom </label>
-        <input type="text" class="form-control" id="nom" placeholder="Enter name" required>
-      </div>
-      <div class="form-group">
-        <label for="occupation">Genre</label>
-        <input type="text" class="form-control" id="genre" placeholder="Enter Genre" required>
-      </div>
-      <div class="form-group">
-        <label for="rendement">Date De Naissance</label>
-        <input type="date" class="form-control" id="Date" placeholder="Enter Date" required>
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-  </div>
-  <div class="container">
-    <h2 class="my-4">Insert Depenses</h2>
-    <form id="teaVarietyForm">
-      <div class="form-group">
-        <label for="varietyName">Engrais</label>
-        <input type="text" class="form-control" id="engrais" placeholder="Enter engrais " required>
-      </div>
-      <div class="form-group">
-        <label for="occupation">Carburant</label>
-        <input type="text" class="form-control" id="Carburant" placeholder="Enter Carburant" required>
-      </div>
-      <div class="form-group">
-        <label for="rendement">Logistique</label>
-        <input type="text" class="form-control" id="logistique" placeholder="Enter logistique" required>
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-  </div>
-  <div class="container">
-    <h2 class="my-4">Salaire</h2>
-    <form id="teaVarietyForm">
-      <div class="form-group">
-        <label for="varietyName">ID Cueilleurs</label>
-        <input type="text" class="form-control" id="cueilleurs" placeholder="Enter Cueilleurs ID" required>
-      </div>
-      <div class="form-group">
-        <label for="occupation">Montant</label>
-        <input type="text" class="form-control" id="Montant" placeholder="Enter Montant" required>
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-  </div>
+    <div class="box">
+      <h2 class="my-4">Insert Variété</h2>
+      <form id="teaVarietyForm">
+        <div class="form-group">
+          <label for="varietyName">Nom Variété</label>
+          <input type="text" class="form-control" id="varietyName" placeholder="Enter variety name" required>
+        </div>
+        <div class="form-group">
+          <label for="occupation">Occupation</label>
+          <input type="text" class="form-control" id="occupation" placeholder="Enter occupation" required>
+        </div>
+        <div class="form-group">
+          <label for="rendement">Rendement</label>
+          <input type="text" class="form-control" id="rendement" placeholder="Enter rendement" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
 
-  <div class="container">
-    <h2 class="my-4">Inserted Data</h2>
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Column 1</th>
-          <th scope="col">Column 2</th>
-          <th scope="col">Column 3</th>
-          <!-- Add more columns as needed -->
-        </tr>
-      </thead>
-      <tbody id="tableBody">
-        <!-- Data will be appended here -->
-        <tr>
-          <td>Data 1</td>
-          <td>Data 2</td>
-          <td>Data 3</td>
-          <!-- Add more columns as needed -->
-        </tr>
-      </tbody>
-    </table>
+    <div class="box">
+      <h2 class="my-4">Insert Parcelle</h2>
+      <form id="parcelForm">
+        <div class="form-group">
+          <label for="parcelName">Nom Parcelle</label>
+          <input type="text" class="form-control" id="parcelName" placeholder="Enter parcel name" required>
+        </div>
+        <div class="form-group">
+          <label for="surface">Surface en Hectare</label>
+          <input type="text" class="form-control" id="surface" placeholder="Enter surface" required>
+        </div>
+        <div class="form-group">
+          <label for="plantedVariety">Variété de thé planté</label>
+          <input type="text" class="form-control" id="plantedVariety" placeholder="Enter planted variety" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+
+    <div class="box">
+      <h2 class="my-4">Insert Cueilleurs</h2>
+      <form id="harvestersForm">
+        <div class="form-group">
+          <label for="harvesterName">Nom</label>
+          <input type="text" class="form-control" id="harvesterName" placeholder="Enter name" required>
+        </div>
+        <div class="form-group">
+          <label for="gender">Genre</label>
+          <input type="text" class="form-control" id="gender" placeholder="Enter gender" required>
+        </div>
+        <div class="form-group">
+          <label for="birthDate">Date De Naissance</label>
+          <input type="date" class="form-control" id="birthDate" placeholder="Enter birth date" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+
+    <div class="box">
+      <h2 class="my-4">Insert Depenses</h2>
+      <form id="expensesForm">
+        <div class="form-group">
+          <label for="fertilizer">Engrais</label>
+          <input type="text" class="form-control" id="fertilizer" placeholder="Enter fertilizer" required>
+        </div>
+        <div class="form-group">
+          <label for="fuel">Carburant</label>
+          <input type="text" class="form-control" id="fuel" placeholder="Enter fuel" required>
+        </div>
+        <div class="form-group">
+          <label for="logistics">Logistique</label>
+          <input type="text" class="form-control" id="logistics" placeholder="Enter logistics" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+
+    <div class="box">
+      <h2 class="my-4">Salaire</h2>
+      <form id="salaryForm">
+        <div class="form-group">
+          <label for="harvesterID">ID Cueilleurs</label>
+          <input type="text" class="form-control" id="harvesterID" placeholder="Enter Harvester ID" required>
+        </div>
+        <div class="form-group">
+          <label for="amount">Montant</label>
+          <input type="text" class="form-control" id="amount" placeholder="Enter amount" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+
+    <div class="box">
+      <h2 class="my-4">Inserted Data</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Column 1</th>
+            <th scope="col">Column 2</th>
+            <th scope="col">Column 3</th>
+            <!-- Add more columns as needed -->
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+          <!-- Data will be appended here -->
+          <tr>
+            <td>Data 1</td>
+            <td>Data 2</td>
+            <td>Data 3</td>
+            <!-- Add more columns as needed -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </body>
-<footer class="bg-light py-5">
-  <div class="container px-4 px-lg-5"><div class="small text-center text-muted">ETU002515 ETU002742 ETU001647</div></div>
+<footer class="py-5">
+  <div class="container px-4 px-lg-5">
+      <div class="small text-center text-muted">ETU002515 ETU002742 ETU001647</div>
+  </div>
 </footer>
 </html>
