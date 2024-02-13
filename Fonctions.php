@@ -21,6 +21,7 @@
         }
         return $retour;
     }
+  
 //Pour supprimer une ligne d'une table avec conditionnementb(string)
     function delete($table, $condition, $valeur)
     {
@@ -80,11 +81,9 @@
         {
             $sql_update = "UPDATE the SET rendement = rendement * 2";
             $result = mysqli_query(connexion(), $sql_update);
-            echo "Rendement mis à jour avec succès!";
-        } else {
-            echo "Aucun mois trouvé entre les dates spécifiées.";
-        }
+        } 
     }
+    
 //Recuperer le total des cueilletes 
     function totalCueillete($dateDebut, $dateFin) //independant
     {
@@ -105,7 +104,7 @@
         return $retour;
     }
 //Recuperer le poids restants sur les parcelles
-    function poidRestant($dateDebut, $dateFin) //change
+    function poidRestant($dateDebut, $dateFin) 
     {
         $total = getTotal($dateDebut, $dateFin);
         $cueillis = totalCueillete($dateDebut, $dateFin);
@@ -210,7 +209,9 @@
         $depense=totalDepenses($dateDebut, $dateFin);
         $salaireTotal = getSalaireTotal($dateDebut, $dateFin);
         $totalCueillete = totalCueillete($dateDebut, $dateFin);
-        return $depenses;
+        $restant=poidRestant($dateDebut, $dateFin) ;
+        $revient=($depenses+$salaireTotal)/($totalCueillete-$restant);
+        return $depense;
     }
 //Pour recuperer le benefice
     function getBenefice($dateDebut, $dateFin)
