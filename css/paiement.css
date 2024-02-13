@@ -1,0 +1,39 @@
+/* Styles for the header */
+h1 {
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* Styles for the form */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Styles for the table */
+.table {
+    margin-top: 20px;
+}
+
+/* Styles for the footer */
+.footer-box {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #f8f9fa;
+    padding: 10px 0;
+    text-align: center;
+    border-top: 1px solid #dee2e6;
+}
+
+/* Styles for small text in footer */
+.small {
+    font-size: 0.8rem;
+}
+
+
+footer {
+    background-color: #f8f9fae3; /* Background color */
+    padding: 20px 0; /* Add padding to top and bottom */
+    color: #6c757d; /* Text color */
+    text-align: center; /* Center align the text */
+  }
