@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         // Insérer les données dans la base de données
         $colonnes = "nom, montant, date_depense";
         $valeurs = "'$type', '$Montant', '$date'";
-        insertion("depenses", $colonnes, $valeurs); 
+        insertion("Depenses", $colonnes, $valeurs); 
 
         $filePath = '../views/success.php';
             header("Location: $filePath");
