@@ -1,64 +1,28 @@
 /* Additional custom styles */
 body {
-  background-color: #f8f9fa; /* Light gray background */
+  background-color: aliceblue;
 }
 
 .container {
-  max-width: 800px; /* Increased container width */
-  margin: 50px auto; /* Centered container */
-  padding: 40px; /* Increased padding */
-  background-color: #ffffff; /* White background */
+  max-width: 600px;
+  margin: 100px auto;
+  padding: 20px;
+  background-color: #ffffff71;
   border-radius: 8px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-
-.form-group {
-  margin-bottom: 30px; /* Increased margin bottom */
-}
-
-.btn-primary {
-  width: 100%; /* Full width button */
-}
-
-.footer {
-  background-color: #f8f9fa; /* Light gray background for footer */
-  padding: 20px 0; /* Increased padding */
-}
-
-footer {
-  background-color: #f8f9fa00; /* Background color */
-  padding: 20px 0; /* Add padding to top and bottom */
-  color: #6c757d; /* Text color */
-  text-align: center; /* Center align the text */
 }
 
 .box {
-  max-width: 600px; /* Set maximum width for the box */
-  margin: 0 auto; /* Center the box horizontally */
   padding: 20px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
 }
 
-.box .btn-primary {
-  display: block; /* Ensure button takes up full width */
-  margin: 0 auto; /* Center the button horizontally */
+.form-group {
+  margin-bottom: 20px;
 }
 
-/* Added CSS for checkboxes alignment */
-.box .form-group {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between; /* Align items evenly */
-}
-
-.box .form-group label {
-  flex-basis: calc(33.33% - 10px); /* Adjust the width of the labels */
-}
-
-.box .form-group input[type="checkbox"] {
-  flex-basis: 30%; /* Adjust the width of the checkboxes */
-  height: 20px; /* Adjust the height of the checkboxes */
-  width: 20px; /* Adjust the width of the checkboxes */
+.btn-primary {
+  width: 50%;
+  margin: 0 auto;
+  display: block;
 }
