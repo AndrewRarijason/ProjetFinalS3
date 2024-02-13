@@ -25,14 +25,12 @@
     function delete($table, $condition, $valeur)
     {
         $requete="delete from ".$table." where ".$condition."='".$valeur."'";
-        echo($requete);
 		$traitement=mysqli_query(connexion(), $requete);	
     }
 //Pour supprimer une ligne d'une table avec conditionnementb(nombre)
     function deleteNumber($table, $condition, $valeur)
     {
         $requete="delete from ".$table." where ".$condition."=".$valeur;
-        echo($requete);
         $traitement=mysqli_query(connexion(), $requete);	
     }
 //Pour modifier un champs dans une table (string)
@@ -57,7 +55,6 @@
     function getRendementTotal($idParcelle)
     {
         $requete="select ((affichage.surface)*10000/Varietes_the.occupation)*Varietes_the.rendement as total from affichage join Varietes_the on affichage.id_variete=Varietes_the.id where affichage.id_parcelle=".$idParcelle;      
-        echo($requete);
         $traitement=mysqli_query(connexion(), $requete);
         $d = $traitement->fetch_assoc(); 
         $retour=$d['total'];
@@ -78,7 +75,6 @@
     function totalCueillete($dateDebut, $dateFin)
     {
         $requete="select sum(poids_cueilli) as total from Cueillettes where date_cueillette>'".$dateDebut."' and date_cueillette<='".$dateFin."'";
-        echo($requete);
         $traitement=mysqli_query(connexion(), $requete);
         $d = $traitement->fetch_assoc(); 
         $retour=$d['total'];
