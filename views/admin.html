@@ -75,7 +75,7 @@
       </div>
       <div class="form-group">
         <label for="occupation">Montant</label>
-        <input type="text" class="form-control" id="Montant" name="Montant" placeholder="Montanr du dépense" required>
+        <input type="text" class="form-control" id="Montant" name="Montant" placeholder="Montant du dépense" required>
       </div>
       <div class="form-group">
         <label for="rendement">Date</label>
@@ -97,30 +97,56 @@
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+    <div class="box">
+      <h2 class="my-4">Configuration des Mois de Régénération du Thé</h2>
+      <form id="regenerationMonthsForm" action="../controller/moisRegeneration.php" method="get">
+        <div class="form-group">
+          <label>Janvier</label>
+          <input type="radio" id="Janvier" name="moisRegeneration" value="1">
+          <label>Février</label>
+          <input type="radio" id="Février" name="moisRegeneration" value="2">
+          <label>Mars</label>
+          <input type="radio" id="Mars" name="moisRegeneration" value="3">
+          <label>Avril</label>
+          <input type="radio" id="Avril" name="moisRegeneration" value="4">
+          <label>Mai</label>
+          <input type="radio" id="Mai" name="moisRegeneration" value="5">
+          <label>Juin</label>
+          <input type="radio" id="Juin" name="moisRegeneration" value="6">
+        </div>
+        <div class="form-group">
+          <label>Juillet</label>
+          <input type="radio" id="Juillet" name="moisRegeneration" value="7">
+          <label>Août</label>
+          <input type="radio" id="Aout" name="moisRegeneration" value="8">
+          <label>Septembre</label>
+          <input type="radio" id="Septembre" name="moisRegeneration" value="9">
+          <label>Octobre</label>
+          <input type="radio" id="Octobre" name="moisRegeneration" value="10">
+          <label>Novembre</label>
+          <input type="radio" id="Novembre" name="moisRegeneration" value="11">
+          <label>Décembre</label>
+          <input type="radio" id="Decembre" name="moisRegeneration" value="12">
+        </div>
+        <button type="submit" class="btn btn-primary">Valider</button>
+
+        <div class="form-group">
+          <label for="dailyWeight">Poids minimal journalier pour un cueilleur</label>
+          <input type="number" class="form-control" id="dailyWeight" name="dailyWeight" placeholder="Poids minimal journalier" required>
+        </div>
+        <div class="form-group">
+          <label for="bonusPercentage">Pourcentage de bonus pour les poids supérieurs au poids minimum</label>
+          <input type="number" class="form-control" id="bonusPercentage" name="bonusPercentage" placeholder="% de bonus" required>
+        </div>
+        <div class="form-group">
+          <label for="malusPercentage">Pourcentage de malus si le poids est inférieur au poids minimum</label>
+          <input type="number" class="form-control" id="malusPercentage" name="malusPercentage" placeholder="% de malus" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Valider</button>
+      </form>
+    </div>
   </div>
 
-  <div class="container">
-    <h2 class="my-4">Inserted Data</h2>
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Column 1</th>
-          <th scope="col">Column 2</th>
-          <th scope="col">Column 3</th>
-          <!-- Add more columns as needed -->
-        </tr>
-      </thead>
-      <tbody id="tableBody">
-        <!-- Data will be appended here -->
-        <tr>
-          <td>Data 1</td>
-          <td>Data 2</td>
-          <td>Data 3</td>
-          <!-- Add more columns as needed -->
-        </tr>
-      </tbody>
-    </table>
-  </div>
 </body>
 <footer class="bg-light py-5">
   <div class="container px-4 px-lg-5"><div class="small text-center text-muted">ETU002515 ETU002742 ETU001647</div></div>
