@@ -1,0 +1,88 @@
+/* Custom CSS */
+
+body {    
+  background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../assets/img/tea.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+.masthead {
+  padding-top: 20rem;
+  padding-bottom: calc(10rem - 4.5rem);
+  text-align: center;
+  color: #fff;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+}
+
+.masthead h1 {
+  font-size: 2.5rem;
+  margin-bottom: .5rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.masthead hr {
+  width: 3rem;
+  border-color: #fff;
+  border-width: .2rem;
+  margin: 2rem auto;
+}
+
+.masthead p {
+  font-size: 1.25rem;
+  margin-bottom: 3rem;
+}
+
+.btn-primary {
+  width: 50%;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  position: relative;
+  background-color: #ff3300d0; /* Change button color to blue */
+  color: #ffffffbb; /* Change button text color to white */
+  border: none; /* Remove button border */
+  display: block; /* Ensure the button takes up the full width */
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  transform: translate(-50%, -50%);
+}
+
+.small.text-muted {
+  color: #6c757d;
+}
+
+.navbar {
+  background-color: rgba(255, 255, 255, 0.9); /* Set background color with opacity */
+  padding: 10px 0; /* Add padding for space inside the navbar */
+}
+
+
+
+.navbar-nav .nav-item {
+  margin-right: 10px; /* Add right margin to each navbar item */
+}
+
+.navbar-nav .nav-link {
+  padding: 8px 15px; /* Adjust padding of navbar links */
+}
+
+
+footer {
+  background-color: #f8f9fae3; /* Background color */
+  padding: 20px 0; /* Add padding to top and bottom */
+  color: #6c757d; /* Text color */
+  text-align: center; /* Center align the text */
+}

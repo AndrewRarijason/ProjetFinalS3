@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Admin</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+  <link href="css/pageA.css" rel="stylesheet" />
+  <style>
+    a {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        padding: 10px 20px;
+        font-size: 16px;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        line-height: 40px; /* Ajuster la hauteur de ligne pour centrer le texte */
+    }
+
+    a:hover {
+        background-color: #0056b3;
+    }
+</style>
+</head>
+<body>
+  <p style="text-align: center; padding-top: 20px;"><a href="adminManager.html">Admin manager</a></p>
+  <div class="container">
+    <h2 class="my-4">Insert Variété</h2>
+    <form id="teaVarietyForm" action="../controller/insertionThe.php" method="get">
+      <div class="form-group">
+        <label for="varietyName">Nom Variété</label>
+        <input type="text" class="form-control" id="varietyName" name="varietyName" placeholder="Variété de thé" required>
+      </div>
+      <div class="form-group">
+        <label for="occupation">Occupation</label>
+        <input type="text" class="form-control" id="occupation" name="occupation" placeholder="Occupation" required>
+      </div>
+      <div class="form-group">
+        <label for="rendement">Rendement</label>
+        <input type="text" class="form-control" id="rendement" name="rendement" placeholder="Rendement" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Insérer</button>
+    </form>
+  </div>
+  <div class="container">
+    <h2 class="my-4">Insert Parcelle</h2>
+    <form id="teaVarietyForm" action="../controller/insertionParcelle.php" method="get">
+      <div class="form-group">
+        <label for="varietyName">Nom Parcelle</label>
+        <input type="text" class="form-control" id="Parcelle" name="Parcelle" placeholder="Nom du Parcelle" required>
+      </div>
+      <div class="form-group">
+        <label for="occupation">Surface en Hectare</label>
+        <input type="text" class="form-control" id="Surface" name="Surface" placeholder="Surface du parcelle" required>
+      </div>
+      <div class="form-group">
+        <label for="rendement">Variété de thé planté</label>
+        <input type="text" class="form-control" id="plante" name="plante" placeholder="Variété de thé planté" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Insérer</button>
+    </form>
+  </div>
+  <div class="container">
+    <h2 class="my-4">Insert Cueilleurs</h2>
+    <form id="teaVarietyForm" action="../controller/insertionCueilleur.php" method="get">
+      <div class="form-group">
+        <label for="varietyName">Nom </label>
+        <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom du cueilleur" required>
+      </div>
+      <div class="form-group">
+        <label for="occupation">Genre</label>
+        <input type="text" class="form-control" id="genre" name="genre" placeholder="Sexe" required>
+      </div>
+      <div class="form-group">
+        <label for="rendement">Date De Naissance</label>
+        <input type="date" class="form-control" id="Date" name="Date" placeholder="Date de Naissance" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Insérer</button>
+    </form>
+  </div>
+  <div class="container">
+    <h2 class="my-4">Insert Depenses</h2>
+    <form id="teaVarietyForm" action="../controller/insertionDepense.php" method="get">
+      <div class="form-group">
+        <label for="varietyName">Nom</label>
+        <input type="text" class="form-control" id="type" name="type" placeholder="Nom/type de dépense " required>
+      </div>
+      <div class="form-group">
+        <label for="occupation">Montant</label>
+        <input type="text" class="form-control" id="Montant" name="Montant" placeholder="Montant du dépense" required>
+      </div>
+      <div class="form-group">
+        <label for="rendement">Date</label>
+        <input type="date" class="form-control" id="date" name="date" placeholder="Date du dépense" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Insérer</button>
+    </form>
+  </div>
+  <div class="container">
+    <h2 class="my-4">Salaire</h2>
+    <form id="teaVarietyForm" action="../controller/insertionSalaire.php" method="get">
+      <div class="form-group">
+        <label for="varietyName">ID Cueilleurs</label>
+        <input type="text" class="form-control" id="cueilleurs" name="cueilleurs" placeholder="Enter Cueilleurs ID" required>
+      </div>
+      <div class="form-group">
+        <label for="occupation">Montant</label>
+        <input type="text" class="form-control" id="Montant" name="Montant" placeholder="Enter Montant" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <div class="box">
+      <h2 class="my-4">Configuration des Mois de Régénération du Thé</h2>
+      <form id="regenerationMonthsForm" action="../controller/moisRegeneration.php" method="get">
+        <div class="form-group">
+          <label>Janvier</label>
+          <input type="radio" id="Janvier" name="moisRegeneration" value="1">
+          <label>Février</label>
+          <input type="radio" id="Février" name="moisRegeneration" value="2">
+          <label>Mars</label>
+          <input type="radio" id="Mars" name="moisRegeneration" value="3">
+          <label>Avril</label>
+          <input type="radio" id="Avril" name="moisRegeneration" value="4">
+          <label>Mai</label>
+          <input type="radio" id="Mai" name="moisRegeneration" value="5">
+          <label>Juin</label>
+          <input type="radio" id="Juin" name="moisRegeneration" value="6">
+        </div>
+        <div class="form-group">
+          <label>Juillet</label>
+          <input type="radio" id="Juillet" name="moisRegeneration" value="7">
+          <label>Août</label>
+          <input type="radio" id="Aout" name="moisRegeneration" value="8">
+          <label>Septembre</label>
+          <input type="radio" id="Septembre" name="moisRegeneration" value="9">
+          <label>Octobre</label>
+          <input type="radio" id="Octobre" name="moisRegeneration" value="10">
+          <label>Novembre</label>
+          <input type="radio" id="Novembre" name="moisRegeneration" value="11">
+          <label>Décembre</label>
+          <input type="radio" id="Decembre" name="moisRegeneration" value="12">
+        </div>
+        <button type="submit" class="btn btn-primary">Insérer</button>
+      </form>
+      <form id="teaVarietyForm" action="../controller/payementCueilleur.php" method="get">
+
+        <div class="form-group">
+          <label for="dailyWeight">Poids minimal journalier pour un cueilleur</label>
+          <input type="number" class="form-control" id="dailyWeight" name="dailyWeight" placeholder="Poids minimal journalier" required>
+        </div>
+        <div class="form-group">
+          <label for="bonusPercentage">Pourcentage de bonus pour les poids supérieurs au poids minimum</label>
+          <input type="number" class="form-control" id="bonusPercentage" name="bonusPercentage" placeholder="% de bonus" required>
+        </div>
+        <div class="form-group">
+          <label for="malusPercentage">Pourcentage de malus si le poids est inférieur au poids minimum</label>
+          <input type="number" class="form-control" id="malusPercentage" name="malusPercentage" placeholder="% de malus" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Valider</button>
+      </form>
+    </div>
+    <h2 class="my-4">Insert Prix Variété</h2>
+    <form id="teaVarietyForm" action="../controller/ajoutPrixVariete.php" method="get">
+      <div class="form-group">
+        <label for="price">Prix de vente</label>
+        <input type="text" class="form-control" id="montant" name="montant" placeholder="Montant" required>
+      </div>
+      <div class="form-group">
+        <label for="occupation">id Variete de the</label>
+        <input type="text" class="form-control" id="variete_the" name="variete_the" placeholder="variete_the" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Insérer</button>
+  </div>
+
+</body>
+<footer class="bg-light py-5">
+  <div class="container px-4 px-lg-5"><div class="small text-center text-muted">ETU002515 ETU002742 ETU001647</div></div>
+</footer>
+</html>
