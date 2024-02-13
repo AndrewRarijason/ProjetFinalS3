@@ -13,6 +13,8 @@ if (isset($_GET['id']) && isset($_GET['table'])) {
 
     // Construire la requête de suppression
     delete($table, "id", $id);
+    $filePath = '../views/success.php';
+            header("Location: $filePath");
 /*
     // Exécuter la requête de suppression
     if (delete($table, "id", $id)) {
