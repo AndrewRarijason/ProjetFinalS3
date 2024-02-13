@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des paiements pour les cueilleurs</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Liste des paiements pour les cueilleurs</h1>
+        <form action="../controller/listPayementManager.php" method="get">
+            <div class="form-group">
+                <label for="start_date">Date de début :</label>
+                <input type="date" class="form-control" id="start_date" name="start_date">
+            </div>
+            <div class="form-group">
+                <label for="end_date">Date de fin :</label>
+                <input type="date" class="form-control" id="end_date" name="end_date">
+            </div>
+            <a href="affListePayement.html">
+            <button type="submit" class="btn btn-primary">Filtrer</button></a>
+        </form>
+    </div>
+</body>
+</html>
