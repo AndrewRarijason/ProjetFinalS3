@@ -5,9 +5,6 @@ CREATE TABLE Admin(
     mdp VARCHAR (20) 
  );
 
- insert into Admin(nom,mdp) values('Rasoa', 'rasoa');
- insert into Admin(nom,mdp) values('Rabe', '');
-
  --Table utilisateur
  CREATE TABLE Utilisateur(
     id_utilisateur INT AUTO_INCREMENT PRIMARY KEY,
@@ -129,3 +126,7 @@ SELECT C.date_cueillette as date_cueillette,
 FROM Cueillettes C
 JOIN Cueilleurs Cr ON C.id_cueilleur = Cr.id 
 JOIN payement_cueilleurs P on P.id_cueilleur=Cr.id;
+
+
+ insert into Admin(nom,mdp) values('Rasoa', 'rasoa');
+ insert into Admin(nom,mdp) values('Rabe', '');
