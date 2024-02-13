@@ -21,18 +21,17 @@
         }
         return $retour;
     }
+  
 //Pour supprimer une ligne d'une table avec conditionnementb(string)
     function delete($table, $condition, $valeur)
     {
         $requete="delete from ".$table." where ".$condition."='".$valeur."'";
-        echo($requete);
 		$traitement=mysqli_query(connexion(), $requete);	
     }
 //Pour supprimer une ligne d'une table avec conditionnementb(nombre)
     function deleteNumber($table, $condition, $valeur)
     {
         $requete="delete from ".$table." where ".$condition."=".$valeur;
-        echo($requete);
         $traitement=mysqli_query(connexion(), $requete);	
     }
 //Pour modifier un champs dans une table (string)
@@ -57,7 +56,6 @@
     function getRendementTotal($idParcelle)
     {
         $requete="select ((affichage.surface)*10000/Varietes_the.occupation)*Varietes_the.rendement as total from affichage join Varietes_the on affichage.id_variete=Varietes_the.id where affichage.id_parcelle=".$idParcelle;      
-        echo($requete);
         $traitement=mysqli_query(connexion(), $requete);
         $d = $traitement->fetch_assoc(); 
         $retour=$d['total'];
@@ -74,19 +72,31 @@
         if($poids <= $ret) {return true;} 
         else {return false;}
     }
+//Genere automatiquement le rendement
+    function updateRendement($dateDebut, $dateFin) 
+    {
+        $requete = "SELECT id FROM regeneration WHERE mois BETWEEN '".$dateDebut."' AND '".$dateFin."'";
+        $result = mysqli_query(connexion(), $requete);
+        if ($result->num_rows > 0) 
+        {
+            $sql_update = "UPDATE the SET rendement = rendement * 2";
+            $result = mysqli_query(connexion(), $sql_update);
+        } 
+    }
+    
 //Recuperer le total des cueilletes 
-    function totalCueillete($dateDebut, $dateFin)
+    function totalCueillete($dateDebut, $dateFin) //independant
     {
         $requete="select sum(poids_cueilli) as total from Cueillettes where date_cueillette>'".$dateDebut."' and date_cueillette<='".$dateFin."'";
-        echo($requete);
         $traitement=mysqli_query(connexion(), $requete);
         $d = $traitement->fetch_assoc(); 
         $retour=$d['total'];
         return $retour;
     }
 //Pour recuperer le rendement total (sans tenir en compte les parcelles)
-    function getTotal()
+    function getTotal($dateDebut, $dateFin)  
     {
+        updateRendement($dateDebut, $dateFin);
         $requete="select ((affichage.surface)*10000/Varietes_the.occupation)*Varietes_the.rendement as total from affichage join Varietes_the on affichage.id_variete=Varietes_the.id";   
         $traitement = mysqli_query(connexion(), $requete);
         $d = $traitement->fetch_assoc(); 
@@ -96,7 +106,7 @@
 //Recuperer le poids restants sur les parcelles
     function poidRestant($dateDebut, $dateFin) 
     {
-        $total = getTotal();
+        $total = getTotal($dateDebut, $dateFin);
         $cueillis = totalCueillete($dateDebut, $dateFin);
         $retour = $total - $cueillis;
         return $retour;
@@ -110,16 +120,120 @@
         $retour=$d['total'];
         return $retour;
     }
+
+//Pour recuperer le salaire
+    function getSalaire()
+    {
+        $requete = "SELECT montant FROM Salaires_cueilleurs";
+        $traitement = mysqli_query(connexion(), $requete);
+        $d = $traitement->fetch_assoc();  
+        $retour = $d['montant'];
+        return $retour;
+    }
+//Pour recuperer les valeurs dans la view v_montant pour une date et un cueilleur
+    function getInfos($dateD, $nom)
+    {
+        $requete="select*from v_montant where date_cueillette='".$dateD."' and nom='".$nom."'";
+        $traitement=mysqli_query(connexion(), $requete);
+        $retour=array();
+        while($d=mysqli_fetch_assoc($traitement))
+        {
+            $retour[]=$d;
+        }
+        return $retour;
+    }
+//Pour calculer le montant a payer lister dans la table
+    function getMontant($dateD, $nom)
+    {
+        $donnees=getInfos($dateD, $nom);
+        $montant=getSalaire();
+        $aPayer=0;
+        foreach($donnees as $row)
+        {  
+            $validPoids=$row['poids'];
+            $poids_min=$row['poids_min'];
+            $bonus=$row['bonus']; $mallus=$row['mallus'];
+            if($validPoids<$poids_min && $validPoids>0)
+            {
+                $moins=$poids_min-$validPoids;
+                $aPayer=($montant*$validPoids)-($moins*($montant*$mallus)/100);
+            }
+            if ($validPoids>$poids_min)
+            {
+                $plus=$validPoids+$poids_min;
+                $aPayer=($montant*$validPoids)+($plus*($montant*$bonus)/100);
+            }
+            if($validPoids=$poids_min){$aPayer=$montant*$validPoids;}
+            else{$aPayer==0;}
+            return $aPayer;
+        }
+    }
+//Pour recuperer les donnees pour une date debut et date fin
+    function getDonnees($dateDebut, $dateFin)
+    {
+        $donnees = "SELECT * FROM v_montant WHERE date_cueillette > '".$dateDebut."' AND date_cueillette <= '".$dateFin."'";
+        $traitement = mysqli_query(connexion(), $donnees);
+        $retour = array();
+        while ($d = mysqli_fetch_assoc($traitement))
+        {
+            $montant = getMontant($d['date_cueillette'], $d['nom']);
+            $d['montant'] = $montant;
+            $retour[] = $d;
+        }
+        return $retour;
+    }
+//Pour calculer le montant total des ventes
+    function getMontantVente($dateDebut, $dateFin)
+    {
+        $requete="SELECT SUM(C.poids_cueilli * PV.montant) AS somme
+        FROM Cueillettes C
+        JOIN Parcelles P ON C.id_parcelle = P.id
+        JOIN prix_variete PV ON P.id_the = PV.id_variete where date_cueillette>'".$dateDebut."' and date_cueillette<='".$dateFin."'";
+         $traitement = mysqli_query(connexion(), $requete);
+         $d = $traitement->fetch_assoc(); 
+         $retour= $d['somme'];
+         return $retour;
+    }
+//Pour calculer le total des depenses
+    function totalDepenses($dateDebut, $dateFin)
+    {
+        $requete="select sum(montant) as total from Depenses where date_depense>'".$dateDebut."' and date_depense<='".$dateFin."'";
+        $traitement = mysqli_query(connexion(), $requete);
+        $d = $traitement->fetch_assoc(); 
+        $depense = $d['total'];
+        return $depense;
+    }
 //Pour recuperer le cout de revient
     function getCoutDeRevient($dateDebut, $dateFin) 
     {
-        $requete = "SELECT SUM(montant) AS total FROM Depenses";
-        $traitement = mysqli_query(connexion(), $requete);
-        $d = $traitement->fetch_assoc(); 
-        $depense = $d['total'] / getTotal();
+        $depense=totalDepenses($dateDebut, $dateFin);
         $salaireTotal = getSalaireTotal($dateDebut, $dateFin);
         $totalCueillete = totalCueillete($dateDebut, $dateFin);
-        $depenses = ($salaireTotal / $totalCueillete) + $depense;
-        return $depenses;
+        $revient=($depense+$salaireTotal)/$totalCueillete;
+        return $revient;
+    }
+//Pour recuperer le benefice
+    function getBenefice($dateDebut, $dateFin)
+    {
+        $ventes=getMontantVente($dateDebut, $dateFin);
+        $revient=getCoutDeRevient($dateDebut, $dateFin);
+        return $ventes-$revient;
+    }
+
+
+
+    //CHANGEMENT
+//Pour recuperer la provision a une date donnee
+    function getPrevision($dateFin) 
+    {
+        $dateDebut="2023-01-01";
+        $requete="select*from v_Prevision where date_cueillette>'".$dateDebut."' and date_cueilleitte<='".$dateFin."'";
+        $traitement = mysqli_query(connexion(), $requete);
+        $retour=array();
+        while($d=mysqli_fetch_assoc($traitement))
+        {
+            $retour[]=$d;
+        }
+        return $retour;
     }
 ?>
