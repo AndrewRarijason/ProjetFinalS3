@@ -150,7 +150,7 @@
         $aPayer=0;
         foreach($donnees as $row)
         {  
-            $validPoids=$row['poids_cueilli'];
+            $validPoids=$row['poids'];
             $poids_min=$row['poids_min'];
             $bonus=$row['bonus']; $mallus=$row['mallus'];
             if($validPoids<$poids_min && $validPoids>0)
@@ -165,7 +165,7 @@
             }
             if($validPoids=$poids_min){$aPayer=$montant*$validPoids;}
             else{$aPayer==0;}
-            return aPayer;
+            return $aPayer;
         }
     }
 //Pour recuperer les donnees pour une date debut et date fin
@@ -209,9 +209,8 @@
         $depense=totalDepenses($dateDebut, $dateFin);
         $salaireTotal = getSalaireTotal($dateDebut, $dateFin);
         $totalCueillete = totalCueillete($dateDebut, $dateFin);
-        $restant=poidRestant($dateDebut, $dateFin) ;
-        $revient=($depenses+$salaireTotal)/($totalCueillete-$restant);
-        return $depense;
+        $revient=($depense+$salaireTotal)/$totalCueillete;
+        return $revient;
     }
 //Pour recuperer le benefice
     function getBenefice($dateDebut, $dateFin)
@@ -219,6 +218,22 @@
         $ventes=getMontantVente($dateDebut, $dateFin);
         $revient=getCoutDeRevient($dateDebut, $dateFin);
         return $ventes-$revient;
+    }
+
+
+
+    //CHANGEMENT
+//Pour recuperer la provision a une date donnee
+    function getPrevision($dateFin) 
+    {
+        $dateDebut="2023-01-01";
+        $requete="select*from v_Prevision where date_cueillette>'".$dateDebut."' and date_cueilleitte<='".$dateFin."'";
+        $retour=array();
+        while($d=mysqli_fetch_assoc($traitement))
+        {
+            $retour[]=$d;
+        }
+        return $retour;
     }
 ?>
 
