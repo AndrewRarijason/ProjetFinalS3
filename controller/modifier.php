@@ -1,5 +1,6 @@
 <?php
 include('../models/Connexion.php');
+
 // Vérifier si les paramètres nécessaires sont spécifiés dans l'URL
 if (isset($_GET['table']) && isset($_GET['id'])) {
     $table = $_GET['table'];
@@ -26,7 +27,8 @@ if (isset($_GET['table']) && isset($_GET['id'])) {
         update($table, $setClause, "id", $id);
 
         // Rediriger l'utilisateur vers la page de liste des données après la modification
-        header("Location: liste.php?table=$table");
+        $filePath = '../views/success.php';
+            header("Location: $filePath");
         exit();
     }
 
@@ -41,16 +43,65 @@ if (isset($_GET['table']) && isset($_GET['id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modifier la ligne <?php echo $id; ?></title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+        /* Custom CSS for form */
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        /* Custom CSS for form labels */
+        label {
+            font-weight: bold;
+        }
+
+        /* Custom CSS for form input fields */
+        input[type="text"] {
+            width: 50%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        /* Custom CSS for form submit button */
+        button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        /* Custom CSS for form submit button on hover */
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <h1>Modifier la ligne <?php echo $id; ?></h1>
-    <form method="post">
-        <?php foreach ($ligne as $colonne => $valeur) { ?>
-            <label for="<?php echo $colonne; ?>"><?php echo $colonne; ?>:</label>
-            <input type="text" id="<?php echo $colonne; ?>" name="<?php echo $colonne; ?>" value="<?php echo $valeur; ?>"><br>
-        <?php } ?>
-        <button type="submit">Enregistrer les modifications</button>
-    </form>
+    <div class="container mt-5">
+        <h1>Modifier la ligne <?php echo $id; ?></h1>
+        <form method="post">
+            <?php foreach ($ligne as $colonne => $valeur) { ?>
+                <div class="form-group">
+                    <label for="<?php echo $colonne; ?>"><?php echo $colonne; ?>:</label>
+                    <input type="text" id="<?php echo $colonne; ?>" name="<?php echo $colonne; ?>" value="<?php echo $valeur; ?>">
+                </div>
+            <?php } ?>
+            <button type="submit">Enregistrer les modifications</button>
+        </form>
+    </div>
 </body>
 </html>
 <?php
