@@ -12,7 +12,6 @@ body {
   padding-bottom: calc(10rem - 4.5rem);
   text-align: center;
   color: #fff;
-  background-image: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.3)), url(../img/masthead-bg.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
