@@ -4,8 +4,7 @@ CREATE TABLE Admin(
     nom VARCHAR (50),
     mdp VARCHAR (20) 
  );
-
- insert into Admin(nom,mdp) values('Rasoa', 'rasoa');
+insert into Admin(nom, mdp) values('Rakoto', 'rakoto');
  insert into Admin(nom,mdp) values('Rabe', '');
 
  --Table utilisateur
@@ -14,6 +13,7 @@ CREATE TABLE Admin(
     nom VARCHAR (50),
     mdp VARCHAR (20) 
  );
+insert into Utilisateur(nom,mdp) values('Rasoa', 'rasoa');
 insert into Utilisateur(nom,mdp) values('Randria', 'randria');
 insert into Utilisateur(nom,mdp) values('Ravao', 'ravao');
 
@@ -24,7 +24,7 @@ CREATE TABLE Cueilleurs (
     genre VARCHAR(10),
     date_naissance DATE
 );
-insert into(nom, genre, date_naissance) values("Koloina", "Feminin", "2024-02-13");
+insert into Cueilleurs(nom, genre, date_naissance) values("Koloina", "Feminin", "2024-02-13");
 
 
 -- Tables variétés de thé
@@ -34,6 +34,7 @@ CREATE TABLE Varietes_The (
     occupation FLOAT NOT NULL,
     rendement FLOAT NOT NULL
 );
+insert into Varietes_The(nom, occupation, rendement) values('cacao', 1.8, 10);
 
 -- Table parcelles (de thé)
 CREATE TABLE Parcelles 
@@ -43,6 +44,7 @@ CREATE TABLE Parcelles
     id_the INT,
     FOREIGN KEY (id_the) REFERENCES Varietes_The(id)
 );
+insert into Parcelles(surface, id_the)values(4, 1);
 
 -- Table dépenses
 CREATE TABLE Depenses (
@@ -51,12 +53,14 @@ CREATE TABLE Depenses (
     montant FLOAT,
     date_depense DATE
 );
+insert into Depenses(nom, montant, date_depense) values('engrais', 300, '2024-02-10');
 
 -- Table salaires des cueilleurs
 CREATE TABLE Salaires_cueilleurs (
     id INT AUTO_INCREMENT PRIMARY KEY,
     montant DECIMAL(8,2) NOT NULL
 );
+insert into Salaires_cueilleurs(montant) values(400); 
 
 -- Table pour les cueillettes
 CREATE TABLE Cueillettes (
@@ -68,6 +72,7 @@ CREATE TABLE Cueillettes (
     FOREIGN KEY (id_cueilleur) REFERENCES Cueilleurs(id),
     FOREIGN KEY (id_parcelle) REFERENCES Parcelles(id)
 );
+insert into Cueillettes(date_cueillette, id_cueilleur,id_parcelle,poids_cueilli) values('2024-03-11', 1, 1, 12);
 
 --Table pour les regenerations par saison
 create table regeneration(id int AUTO_INCREMENT  primary key, mois int);
