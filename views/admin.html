@@ -9,9 +9,27 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
   <link href="css/pageA.css" rel="stylesheet" />
+  <style>
+    a {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        padding: 10px 20px;
+        font-size: 16px;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        line-height: 40px; /* Ajuster la hauteur de ligne pour centrer le texte */
+    }
+
+    a:hover {
+        background-color: #0056b3;
+    }
+</style>
 </head>
 <body>
-  <a href="adminManager.html"">Admin manager</a>
+  <p style="text-align: center; padding-top: 20px;"><a href="adminManager.html">Admin manager</a></p>
   <div class="container">
     <h2 class="my-4">Insert Variété</h2>
     <form id="teaVarietyForm" action="../controller/insertionThe.php" method="get">
@@ -130,7 +148,7 @@
         </div>
         <button type="submit" class="btn btn-primary">Insérer</button>
       </form>
-      <form>
+      <form id="teaVarietyForm" action="../controller/payementCueilleur.php" method="get">
 
         <div class="form-group">
           <label for="dailyWeight">Poids minimal journalier pour un cueilleur</label>
@@ -147,6 +165,17 @@
         <button type="submit" class="btn btn-primary">Valider</button>
       </form>
     </div>
+    <h2 class="my-4">Insert Prix Variété</h2>
+    <form id="teaVarietyForm" action="../controller/ajoutPrixVariete.php" method="get">
+      <div class="form-group">
+        <label for="price">Prix de vente</label>
+        <input type="text" class="form-control" id="montant" name="montant" placeholder="Montant" required>
+      </div>
+      <div class="form-group">
+        <label for="occupation">id Variete de the</label>
+        <input type="text" class="form-control" id="variete_the" name="variete_the" placeholder="variete_the" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Insérer</button>
   </div>
 
 </body>
