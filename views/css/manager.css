@@ -1,0 +1,89 @@
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Style the table header */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th {
+    background-color: #007bff; /* Bootstrap primary color */
+    color: #fff; /* White text color */
+    padding: 10px;
+    text-align: left;
+}
+
+/* Style table rows */
+tr:nth-child(even) {
+    background-color: #f2f2f2; /* Light gray background color for even rows */
+}
+
+tr:hover {
+    background-color: #ddd; /* Dark gray background color on hover */
+}
+
+/* Style table data cells */
+td {
+    padding: 10px;
+}
+
+/* Style the button */
+button[type="submit"] {
+    background-color: #007bff; /* Bootstrap primary color */
+    color: #fff; /* White text color */
+    padding: 15px 30px; /* Increased padding */
+    border: none;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3; /* Darker shade of primary color on hover */
+}
+
+/* Style the box */
+.box {
+    border: 1px solid #ccc;
+    padding: 40px; /* Increased padding */
+    border-radius: 8px;
+    background-color: #f8f9fa; /* Light gray background color */
+    margin: 0 auto; /* Center horizontally */
+    max-width: 600px; /* Increased max-width */
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Arrange items vertically */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+}
+
+/* Custom CSS for smaller text */
+.smaller-text {
+    font-size: 1rem; /* Increased font size */
+}
+
+/* Custom CSS for wider input */
+.custom-input {
+    width: 70%; /* Increased width */
+    font-size: 1.2rem; /* Increased font size */
+}
+
+/* Custom CSS for larger input field */
+.large-input {
+    width: 90%; /* Increased width */
+    font-size: 1.5rem; /* Increased font size */
+}
+
+footer {
+    background-color: #f8f9fa00; /* Background color */
+    padding: 20px 0; /* Add padding to top and bottom */
+    color: #6c757d; /* Text color */
+    text-align: center; /* Center align the text */
+    font-size: 18px; /* Increase font size */
+}
+
+.footer-text {
+    color: #000000; /* Brighten the text color */
+}
