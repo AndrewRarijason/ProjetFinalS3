@@ -27,10 +27,6 @@
         <label for="rendement">Rendement</label>
         <input type="text" class="form-control" id="rendement" name="rendement" placeholder="Rendement" required>
       </div>
-      <div class="form-group">
-        <label for="price">Prix de vente</label>
-        <input type="text" class="form-control" id="price" name="price" placeholder="Prix de vente" required>
-      </div>
       <button type="submit" class="btn btn-primary">Insérer</button>
     </form>
   </div>
@@ -150,6 +146,17 @@
         <button type="submit" class="btn btn-primary">Valider</button>
       </form>
     </div>
+    <h2 class="my-4">Insert Prix Variété</h2>
+    <form id="teaVarietyForm" action="../controller/insertionThe.php" method="get">
+      <div class="form-group">
+        <label for="price">Prix de vente</label>
+        <input type="text" class="form-control" id="prix" name="prix" placeholder="Prix" required>
+      </div>
+      <div class="form-group">
+        <label for="occupation">Variete De The</label>
+        <input type="text" class="form-control" id="variete_the" name="variete_the" placeholder="variete_the" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Insérer</button>
   </div>
 
 </body>
