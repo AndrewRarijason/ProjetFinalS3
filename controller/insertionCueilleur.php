@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         // Insérer les données dans la base de données
         $colonnes = "nom, genre, date_naissance";
         $valeurs = "'$nom', '$genre', '$Date'";
-        insertion("cueilleurs", $colonnes, $valeurs); 
+        insertion("Cueilleurs", $colonnes, $valeurs); 
 
         $filePath = '../views/success.php';
             header("Location: $filePath");

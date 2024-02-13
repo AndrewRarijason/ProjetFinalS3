@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         // Insérer les données dans la base de données
         $colonnes = "id_cueilleur, montant";
         $valeurs = "'$type', '$Montant'";
-        insertion("salaires_cueilleurs", $colonnes, $valeurs); 
+        insertion("Salaires_cueilleurs", $colonnes, $valeurs); 
 
         $filePath = '../views/success.php';
             header("Location: $filePath");

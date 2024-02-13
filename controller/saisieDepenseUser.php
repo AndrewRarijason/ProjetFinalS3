@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         // Insérer les données dans la base de données
         $colonnes = "nom, montant, date_depense";
         $valeurs = "'$type', '$Montant', '$date'";
-        insertion("depenses", $colonnes, $valeurs); 
+        insertion("Depenses", $colonnes, $valeurs); 
 
         // Rediriger vers une autre page après l'insertion réussie
         header("Location: success.php");
