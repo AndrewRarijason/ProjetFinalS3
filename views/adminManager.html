@@ -4,12 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Manager</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/manager.css">
+    <style>
+        /* Custom CSS for smaller text */
+        .smaller-text {
+            font-size: 0.9rem;
+        }
+
+        /* Custom CSS for 50% width input */
+        .custom-input {
+            width: 50%;
+            height: 10%;
+        }
+
+        /* Custom CSS for box */
+        .box {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 80px;
+            background-color: #f8f9fa; /* Light gray background color */
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Gestion des tables</h1>
-    <form action="../controller/listerTable.php" method="GET">
-        <p>Entrer la table à lister : <input type="text" id="table" name="table"></p>
-        <button type="submit">Lister</button>
-    </form>
+    <h1 class="mt-5 text-center">Gestion des tables</h1>
+    <div class="container mt-5">
+        <div class="box">
+            <form action="../controller/listerTable.php" method="GET">
+                <div class="form-group">
+                    <label for="table" class="smaller-text">Entrer la table à lister :</label>
+                    <input type="text" class="form-control custom-input large-input" id="table" name="table">
+                </div>
+                <button type="submit" class="btn btn-primary smaller-text">Lister</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
