@@ -1,7 +1,7 @@
 <?php
     function connexion() 
     {
-        $serveur = "localhost";
+        $serveur = "172.20.0.167";
         $utilisateur = "ETU002515";
         $motDePasse = "h76bHHwPshRc";
         $baseDeDonnees = "the";
