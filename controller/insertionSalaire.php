@@ -17,8 +17,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $valeurs = "'$type', '$Montant'";
         insertion("salaires_cueilleurs", $colonnes, $valeurs); 
 
-        // Rediriger vers une autre page après l'insertion réussie
-        header("Location: success.php");
+        $filePath = '../views/success.php';
+            header("Location: $filePath");
         exit();
     } else {
         // Afficher un message d'erreur si des champs sont manquants dans le formulaire
