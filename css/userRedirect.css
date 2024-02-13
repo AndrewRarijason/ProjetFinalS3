@@ -1,7 +1,5 @@
 body {
-    font-family: Arial, sans-serif; /* Change font family for better readability */
-    background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../assets/img/tea.jpg");  
-    background-color: rgb(255, 255, 255);
+    background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../assets/img/tea.jpg");
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -22,8 +20,9 @@ body {
 }
 
 footer {
-    background-color: #f8f9fa00; /* Background color */
+    background-color: #f8f9fae3; /* Background color */
     padding: 20px 0; /* Add padding to top and bottom */
     color: #6c757d; /* Text color */
     text-align: center; /* Center align the text */
-}
+  }
+  
