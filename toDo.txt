@@ -1,0 +1,55 @@
+COTE BACK:
+    ADMINISTRATEUR
+-Validation Login pour administrateur
+-Insertion (variete de the, parcelles, cueilleurs, categories de depenses, salaires)
+-Suppression (variete de the, parcelles, cueilleurs, categories de depenses, salaires)
+-Modification (variete de the, parcelles, cueilleurs, categories de depenses, salaires)
+    UTILISATEUR
+-Validation Login pour utilisateur
+-Insertion(cueillettes, depenses)
+-Resultats: 
+    -calcul poids total
+    -calcul poids restant sur les parcelles
+    -calcul coût de revient/kg 
+
+    PARTIE 2/3:
+Cote BackOffice:
+PAGE1: 
+    Base: -Table Regeneration(id, mois)
+    Front: -Page configuration(insertion/modification/suppression) de regeneration: mois (chexk box multiples)
+    Back:  -Fonctions insertion/modification/suppression de la regeneration
+    Integration: -Page de traitement insertion/modification/suppression
+PAGE2:
+    Base: -Table Payement_Cueilleurs(id, poidMin, idCueilleurs, bonus, mallus) ou poidMin/j, bonus en %, mallus en %
+    Front: -Page configuration(insertion/modification/suppression) 
+    Back: -Fonctions configurations
+    Integration: -Page de traitement insertion/modification/suppression
+PAGE3:
+    Base: -Table prix_Variete(id, montant, id_variete)
+    Front: -Configuration de la table (si necessaire)
+    Back: -fonctions configuration (si necessaire)
+    Integration: -Page de traitement (si necessaire)
+Cote FrontOffice
+PAGE1:
+    Base: 
+    Front: -Formulaire de date debut et date fin
+           -Tableau de liste de paiements (date, nom cueilleur, poids, %bonus, %mallus,montant paiement)
+    Back: -Fonctions calcul montant paiement
+    Integration: -Page de traitement qui permet de relier le tableau et la fonction
+PAGE2:
+    Base: 
+    Front: -Formulaire de date debut et date fin
+           -Page pour afficher en globalite: 
+                1. Poids total cueillette
+                2. Poids restant sur les parcelles
+                3. Montant des ventes
+                4. Montant des dépenses
+                5. Bénéfice
+                6. Coût de revient par kg
+    Back:   -Fonctions calculTotalCueillette, 
+                        PoidsRestants, 
+                        MontantVentes, 
+                        MontantsDepense, 
+                        Bebefice, 
+                        Cout de revient/kg
+    Integration: -Page d'integration
