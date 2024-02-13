@@ -2,8 +2,8 @@
     function connexion() 
     {
         $serveur = "localhost";
-        $utilisateur = "root";
-        $motDePasse = "Andrew2963";
+        $utilisateur = "ETU002515";
+        $motDePasse = "h76bHHwPshRc";
         $baseDeDonnees = "the";
 
         $connexion = new mysqli($serveur, $utilisateur, $motDePasse, $baseDeDonnees);
